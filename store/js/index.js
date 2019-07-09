@@ -42,44 +42,12 @@ class qu{
 }
 new qu();
 
-// var arr = [{
-//     "src":"http://www.sunas.cn/explorer?thumb=C.121.123&id=9163",
-//     "name":"北京稻香村八月食节高档月饼礼盒520g",
-//     "price":"￥99.00",
-//     "id":"1"
-// },{
-//     "src":"http://www.sunas.cn/explorer?thumb=C.121.123&id=9163",
-//     "name":"北京稻香村八月食节高档月饼礼盒520g",
-//     "price":"￥99.00",
-//     "id":"2"
-// },{
-//     "src":"http://www.sunas.cn/explorer?thumb=C.121.123&id=9163",
-//     "name":"北京稻香村八月食节高档月饼礼盒520g",
-//     "price":"￥99.00",
-//     "id":"3"
-// },{
-//     "src":"http://www.sunas.cn/explorer?thumb=C.121.123&id=9163",
-//     "name":"北京稻香村八月食节高档月饼礼盒520g",
-//     "price":"￥99.00",
-//     "id":"1"
-// },{
-//     "src":"http://www.sunas.cn/explorer?thumb=C.121.123&id=9163",
-//     "name":"北京稻香村八月食节高档月饼礼盒520g",
-//     "price":"￥99.00",
-//     "id":"1"
-// },{
-//     "src":"http://www.sunas.cn/explorer?thumb=C.121.123&id=9163",
-//     "name":"北京稻香村八月食节高档月饼礼盒520g",
-//     "price":"￥99.00",
-//     "id":"1"
-// }]
-// console.log(arr[0].src);
 
 class shuju{
     constructor(){
         this.url="http://localhost/store/json/goods.json";        
-        this.ul1=document.getElementById("love_id");
-        this.ul2=document.getElementById("reai_id");
+        this.ul1=document.getElementById("reai_id");
+        this.ul2=document.getElementById("love_id");
         this.init();
     }
     init(){
@@ -98,6 +66,7 @@ class shuju{
             <p>${this.data[i].name}</p>
             <span>商城价:<h3>${this.data[i].price}</h3></span>
         </li>`
+        // console.log(str);
         }
         this.ul1.innerHTML=str;
         }
@@ -118,6 +87,7 @@ class shuju{
                 <p>${this.data[i].name}</p>
                 <span>商城价:<h3>${this.data[i].price}</h3></span>
             </li>`
+            // console.log(str)
             }
             this.ul2.innerHTML=str;
         }
@@ -132,8 +102,8 @@ class qiehuan{
         for(var i=0;i<this.oli.length;i++){
             var that = this;
             this.oli[i].onmouseover=function(){
-                this.index=this.getAttribute("index");
-                    if(this.index==1){
+                that.index=this.getAttribute("index");
+                    if(that.index==1){
                         that.reai.style.display="block";
                         that.xihuan.style.display="none";
                     }else{
@@ -145,3 +115,15 @@ class qiehuan{
     }
 }
 new qiehuan();
+
+$(".btns").children("li").click(function(){
+    var index=$(this).index();
+    var iNowFloor=$(".floor").eq(index);
+    var t=iNowFloor.offset().top;
+    $("html").stop().animate({
+        scrollTop:t
+    })
+})
+
+
+

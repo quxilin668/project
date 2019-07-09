@@ -9,13 +9,14 @@
     <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
+
     <div id="header">
         <div class="margin">
-            <div class="l">
+            <div class="l floor">
                 <span>欢迎来到</span>
                 <span class="te">阳光商城</span>
-                <a href="#">登录</a>
-                <a href="#">注册</a>
+                <a href="denglu.html">登录</a>
+                <a href="zhuce.html">注册</a>
             </div>
             <div class="r">
                 <ul>
@@ -82,7 +83,9 @@
             </div>
             <div class="nav-c">
                 <p class="p1"><a href="#" title="请输入您要搜索的商品的关键字" class="current">商品</a><a href="#" title="请输入您要搜索的店铺的关键字">店铺</a></p>
-                <p class="p2"><input type="text" placeholder="请输入您要搜索的商品的关键字"><a href="">搜索</a></p>
+                <p class="p2"><input type="text" placeholder="请输入您要搜索的商品的关键字" id="p2_txt"><a href="">搜索</a>
+                </p>
+                <ul id="p2_ul"></ul>
                 <p class="p3">
                     <span>热门搜索:</span>
                     <a href="#">买二送一</a>
@@ -434,32 +437,32 @@
         <div class="reai">
             <ul id="reai_id">
                 <li>
-                    <a href=""><img src="http://www.sunas.cn/item-730.html" alt=""></a>
+                    <a href=""><img src="" alt=""></a>
                     <p></p>
                     <span>商城价:<h3></h3></span>
                 </li>
                 <li>
-                    <a href=""><img src="http://www.sunas.cn/item-730.html" alt=""></a>
+                    <a href=""><img src="" alt=""></a>
                     <p></p>
                     <span>商城价:<h3></h3></span>
                 </li>
                 <li>
-                    <a href=""><img src="http://www.sunas.cn/item-730.html" alt=""></a>
+                    <a href=""><img src="" alt=""></a>
                     <p></p>
                     <span>商城价:<h3></h3></span>
                 </li>
                 <li>
-                    <a href=""><img src="http://www.sunas.cn/item-730.html" alt=""></a>
+                    <a href=""><img src="" alt=""></a>
                     <p></p>
                     <span>商城价:<h3></h3></span>
                 </li>
                 <li>
-                    <a href=""><img src="http://www.sunas.cn/item-730.html" alt=""></a>
+                    <a href=""><img src="" alt=""></a>
                     <p></p>
                     <span>商城价:<h3></h3></span>
                 </li>
                 <li>
-                    <a href=""><img src="http://www.sunas.cn/item-730.html" alt=""></a>
+                    <a href=""><img src="" alt=""></a>
                     <p></p>
                     <span>商城价:<h3></h3></span>
                 </li>
@@ -468,32 +471,32 @@
         <div class="xihuan">
             <ul id="love_id">
                 <li>
-                    <a href=""><img src="http://www.sunas.cn/item-730.html" alt=""></a>
+                    <a href=""><img src="" alt=""></a>
                     <p></p>
                     <span>商城价:<h3></h3></span>
                 </li>
                 <li>
-                    <a href=""><img src="http://www.sunas.cn/item-730.html" alt=""></a>
+                    <a href=""><img src="" alt=""></a>
                     <p></p>
                     <span>商城价:<h3></h3></span>
                 </li>
                 <li>
-                    <a href=""><img src="http://www.sunas.cn/item-730.html" alt=""></a>
+                    <a href=""><img src="" alt=""></a>
                     <p></p>
                     <span>商城价:<h3></h3></span>
                 </li>
                 <li>
-                    <a href=""><img src="http://www.sunas.cn/item-730.html" alt=""></a>
+                    <a href=""><img src="" alt=""></a>
                     <p></p>
                     <span>商城价:<h3></h3></span>
                 </li>
                 <li>
-                    <a href=""><img src="http://www.sunas.cn/item-730.html" alt=""></a>
+                    <a href=""><img src="" alt=""></a>
                     <p></p>
                     <span>商城价:<h3></h3></span>
                 </li>
                 <li>
-                    <a href=""><img src="http://www.sunas.cn/item-730.html" alt=""></a>
+                    <a href=""><img src="" alt=""></a>
                     <p></p>
                     <span>商城价:<h3></h3></span>
                 </li>
@@ -501,7 +504,7 @@
         </div>
     </main>
     <!-- 这是楼层1的结构 -->
-    <div id="floor1" class="margin">
+    <div id="floor1" class="margin floor">
         <div class="floor1-l">
             <img src="../img/f1.png" class="img1">
             <span>健康食品</span>
@@ -564,7 +567,7 @@
         </div>
     </div>
     <!-- 这是楼层二的布局 -->
-    <div id="floor2" class="margin">
+    <div id="floor2" class="margin floor">
         <div class="floor2-l">
             <img src="../img/f2.png" class="img1">
             <span>家居必备</span>
@@ -623,7 +626,7 @@
         </div>
     </div>
     <!-- 这是楼层三的布局 -->
-    <div id="floor3" class="margin">
+    <div id="floor3" class="margin floor">
             <div class="floor3-l">
                 <img src="../img/f3.png" class="img1">
                 <span>礼品选购</span>
@@ -688,7 +691,7 @@
         </div>
     
     <!-- 这是楼层四的布局 -->
-    <div id="floor4" class="margin">
+    <div id="floor4" class="margin floor">
             <div class="floor4-l">
                 <img src="../img/f4.png" class="img1">
                 <span>礼品选购</span>
@@ -829,12 +832,34 @@
         <img src="../img/q13.png" alt="">
     </div>
 </div>
+<div class="palou">
+        <ul class="btns">
+                <li>一楼</li>
+                <li>二楼</li>
+                <li>三楼</li>
+                <li>四楼</li>
+                <li>五楼</li>
+        </ul>
+</div>
+
+
 </body>
 <script src="../jq/jquery.js"></script>
 <script src="../js/ajax.js"></script>
 <script src="../jq/jq.js"></script>
 <script src="../js/index.js"></script>
-    
+<script src="../js/jiekou.js"></script>  
+<!-- <script>
+    $(".btns").children("li").click(function(){
+        var index=$(this).index();
+        var iNowFloor=$(".floor").eq(index);
+        var t=iNowFloor.offset().top;
+        $("html").stop().animate({
+            scrollTop:t
+        })
+    })
+</script> -->
+
 </html>
 
 

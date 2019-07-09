@@ -24,3 +24,7 @@ main #login .yanzheng{overflow:hidden;}
 main #login .yanzheng input{width:132px;height:35px;border: 0;text-indent:12px;outline: none;margin-right:20px;float:left;}
 main #login .yanzheng img{float:left;}
 main #login .denglu{width:290px;height:35px;background:#fff;border:0;margin-top:25px;color:#389c38;}
+main #login .p{font:600 12px/2 "";color:#000;text-indent:178px;margin-top:18px;}
+main #login .p a{margin-right: 20px;}
+footer{height:60px;font:12px/20px "";}
+footer p{margin:0 auto;width:150px;margin-top:30px;}
