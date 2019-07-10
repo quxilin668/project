@@ -1,0 +1,30 @@
+
+.margin{width: 1200px;margin: 0 auto;position:relative;}
+header{height: 100px;}
+header a{}
+header a img{margin-top:20px;}
+main{background-color: #299BE8;}
+main img.banner{width: 1200px;height: 620px;}
+main #login{position: absolute;z-index: 99;right:200px;top:120px;width:325px;height:345px;padding-left:25px;}
+.op{position: absolute;right:200px;top:120px;width:325px;background-color:#ffffff;opacity: 0.5;height: 345px;width: 350px;z-index: 90;}
+main #login b{font:600 18px/20px "";display: inline-block;margin-top:26px;}
+main #login .error_3{width:296px;height:25px;}
+main #login img.tuma{float:right;}
+main #login .idname{}
+main #login .idname p{width:296px;height:35px;background:#fff;}
+main #login .idname p img{width:20px;height: 20px;margin:0 10px;}
+main #login .idname p input{border:0;font:12px/35px "";color:#757575;outline: none;}
+main #login .idname .error_1{width:296px;height:30px;}
+main #login .mima{}
+main #login .mima p{width:296px;height:35px;background:#fff;}
+main #login .mima p img{margin:0 10px;}
+main #login .mima p input{border:0;font:12px/35px "";color:#757575;outline: none;}
+main #login .mima .error_2{width:296px;height:30px;}
+main #login .yanzheng{overflow:hidden;}
+main #login .yanzheng input{width:132px;height:35px;border: 0;text-indent:12px;outline: none;margin-right:20px;float:left;}
+main #login .yanzheng img{float:left;}
+main #login .denglu{width:290px;height:35px;background:#fff;border:0;margin-top:25px;color:#389c38;}
+main #login .p{font:600 12px/2 "";color:#000;text-indent:178px;margin-top:18px;}
+main #login .p a{margin-right: 20px;}
+footer{height:60px;font:12px/20px "";}
+footer p{margin:0 auto;width:150px;margin-top:30px;}

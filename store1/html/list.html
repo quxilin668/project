@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <style>
+        .margin{width: 1200px;margin: 0 auto;}
+        #header{height:40px;height: 40px;background: #f2f2f2;border-bottom: 1px solid #cecece;}
+        #header .l{float: left;}
+        #header .l .te{color: red;line-height: 40px;}
+        #header .l a{color: red;}
+
+        #header .r{float: right;line-height: 40px;}
+        #header .r ul{}
+        #header .r ul li{float: left;position: relative;}
+        #header .r ul li>a{background: url(../img/sanjiao.png) no-repeat right center;padding-right: 16px;margin: 0 21px;font-size: 12px;color: #000;}
+        #header .r ul li a{display: block;}
+
+        #header .header_bag{position: absolute;width: 105px;background:#fff;top:40px;left:0;z-index: 1;display: none;font: 12px/2 "";text-align:center;padding: 0 5px;border: 1px solid #cecece;border-top:0;}
+        #header .header_bag a{padding:2px 0;}
+        #header .header_bag a:hover{color: red;}
+
+        #header #li .header_bag{position: absolute;width:350px;height: 156px;top:40px;left:0;z-index: 1;background:#fff;display: none;border: 1px solid #ccc;border-top:0;}
+        #header #li .header_bag b{display: block;font:600 12px/42px "";color:#454545;text-align:8px;border-bottom:1px solid #ccc;padding-left:9px;}
+        #header #li .header_bag span{display: block;font:12px/42px "";text-align: center;margin-top:10px; }
+        #header #li .header_bag a.te1{display: block;width: 124px;background:#d93600;margin-left: 215px;border-radius:6px;color:#fff;text-align: center;}
+
+        /* nav样式 */
+        #nav{height: 148px;position: relative;border-bottom: 2px solid #20c018;}
+        #nav .nav-l{float:left;margin: 19px 15px 0 0;}
+        #nav .nav-l p{}
+        #nav .nav-l p a{font: 12px/20px "";color: #555;}
+        #nav .nav-c{float: left;margin:8px 0 0 210px;}
+        #nav .nav-c .p1{}
+        #nav .nav-c .p1 .current{background:#20c018;color: #fff;}
+        #nav .nav-c .p1 a{padding: 0 14px;font: 11px/2 "";display:inline-block; }
+        #nav .nav-c .p2{height:42px;}
+        #nav .nav-c .p2 input{border:3px solid #20c018;width:369px;height: 36px;padding-left: 4px;font: 12px/3 "";float: left;outline: none;}
+        #nav .nav-c .p2 a{width:68px;height: 42px;background: #20c018;float: left;color:#fff;line-height: 42px;text-align: center;}
+        #nav .nav-c{position:relative;}
+        #nav .nav-c ul{position:absolute;z-index:8;left:50;top:70;display:none;width:200px;height: 200px;}
+        #nav .nav-c ul li{width:379px;height: 19px;border: 1px solid #ccc;border-top: none;text-indent: 20px;cursor:pointer;}
+        #nav .nav-c ul .active{background: red;}
+        #nav .nav-r{float:right;margin-top:20px;}
+        #nav .nav-c .p3{height: 27px;line-height: 27px;}
+        #nav .nav-c .p3 span{font:11px/27px "";color:#999;}
+        #nav .nav-c .p3 a{color:#999;}
+        #nav .box{position: absolute;bottom: 0;left:315px;height: 39px;line-height: 39px;width: 800px;}
+        #nav .box a{font:600 15px/39px "";color:#000;padding:0 24px;display: inline-block;}
+
+        #cont{width:1000px;border: solid 1px black;margin:auto;overflow: hidden;}
+        #cont .box{width: 250px;float: left;border: solid 1px black;box-sizing: border-box;text-align: center;}
+        .box img{width: 60%;}
+        .box p{line-height: 16px;height: 32px;overflow: hidden;margin: 10px 0;}
+        .box span{}
+        .box em{width: 100px;height: 30px;line-height: 30px;text-align: center;margin: 10px auto;display: block;font-style: normal;background: dodgerblue;color: #FFF;}
+/* 这是页脚的css */
+        #img_box{height:130px;width:1200px;margin: 0 auto;;}
+        #img_box a{display: block;line-height: 130px;}
+        #img_box a img{}
+
+        #afterser{width:100%;border-top:4px solid #e7e7e7;height:336px;background:#f5f5f5;border-bottom:1px solid #e7e7e7}
+        #afterser ul{overflow: hidden;width:1200px;margin:0 auto;display: flex;margin-top:25px;}
+        #afterser ul li{width:198px;height:100px;border-right:1px dashed #ccc;}
+        #afterser ul li img{display:block;margin:0 auto;}
+        #afterser ul li strong{display:block;margin:0 auto;width:50px;font:11px/19px "";}
+        #afterser ul li span{display:block;margin:0 auto;margin-left:46px;font:11px/21px "";color:#999;}
+        #afterser .zhongxin{width:1200px;margin-top:27px;}
+        #afterser .zhongxin dl{float:left;font-size: 12px;padding-left:60px;display: inline;}
+        #afterser .zhongxin dl dt{font:600 14px/30px "";}
+        #afterser .zhongxin dl dd{font:12px/2 "";}
+
+        /* 这是footer的css */
+        #footer{padding: 0 40px;padding-top:10px;background:#f5f5f5;}
+        #footer span{font:11px/20px "";margin: 0 9px;}
+        #footer img{display: block;margin-left:370px;}
+        .shoplist #cont{border:1px solid red;width:1250px;}
+        .shoplist #cont .box{border:1px solid red;}
+        .shoplist #cont .box img{margin-top:36px;}
+        .shoplist #cont p{}
+        .shoplist h2{}
+        .shoplist h2 a{}
+
+        /* <div class="shoplist">
+        <h2>这是商品列表<small><a href="car.html">去结算</a></small></h2>
+        <div id="cont">
+        <p>目前商城还没有开业，请稍候再来.....</p>
+        </div> */
+    /* </div> */
+
+
+
+    </style>
+</head>
+<body>
+    <div id="header">
+            <div class="margin">
+                <div class="l floor">
+                    <span>欢迎来到</span>
+                    <span class="te">阳光商城</span>
+                    <a href="denglu.html">登录</a>
+                    <a href="zhuce.html">注册</a>
+                </div>
+                <div class="r">
+                    <ul>
+                        <li>
+                            <a href="#" class="block" title="免费开店">免费开店
+                                <div class="header_bag">
+                                    <a href="#">商家登录</a>
+                                    <a href="#">招商入驻</a>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="block">我的订单
+                                <div class="header_bag">
+                                        <a href="#">待付款订单</a>
+                                        <a href="#">待确认收货</a>
+                                </div>
+                            </a>
+                        </li> 
+                        <li id="li">
+                            <a href="#">我的购物车
+                                <div class="header_bag">
+                                    <b>最新加入的商品</b>
+                                    <span>你的购物车暂无商品</span>
+                                    <a href="#" class="te1">结算购物车中的商品</a>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">我的收藏
+                                <div class="header_bag">
+                                    暂时无收藏的商品
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="block">帮助中心
+                                    <div class="header_bag">
+                                            <a href="#">帮助中心</a>
+                                            <a href="#">售后中心</a>
+                                            <a href="#">服务中心</a>
+                                    </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="block">关注我们
+                                <img src="../img/erweima.png" class="header_bag">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="block">手机版
+                                <img src="../img/erweima.png" class="header_bag">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+<!-- nav的部分 -->
+    <div id="nav">
+        <div class="margin">
+            <div class="nav-l">
+                <a href="#"><img src="../img/logo.png" alt=""></a>
+            </div>
+            <div class="nav-c">
+                <p class="p1"><a href="#" title="请输入您要搜索的商品的关键字" class="current">商品</a><a href="#" title="请输入您要搜索的店铺的关键字">店铺</a></p>
+                <p class="p2"><input type="text" placeholder="请输入您要搜索的商品的关键字" id="p2_txt"><a href="">搜索</a>
+                </p>
+                <ul id="p2_ul"></ul>
+                <p class="p3">
+                    <span>热门搜索:</span>
+                    <a href="#">买二送一</a>
+                    <a href="#">水</a>
+                    <a href="#">牡蛎</a>
+                    <a href="#">护颈枕</a>
+                    <a href="#">面膜</a>
+                </p>
+            </div>
+            <div class="nav-r">
+                <img src="../img/tel.png" alt="">
+            </div>
+            <div class="box">
+                <a href="#">首页</a>
+                <a href="#">孝心专区</a>
+                <a href="#">白领专区</a>
+                <a href="#">活动专区</a>
+                <a href="#">积分专区</a>
+                <a href="#">养生咨询</a>
+            </div>
+        </div>
+    </div>
+    <div class="shoplist">
+        <h2>这是商品列表<small><a href="car.html">去结算</a></small></h2>
+        <div id="cont">
+        <p>目前商城还没有开业，请稍候再来.....</p>
+        </div>
+    </div>
+<!-- 这是页脚的部分 -->
+    <div id="img_box">
+            <a href=""><img src="http://www.sunas.cn/themes/default/images/index/05017821186644723.jpg" alt=""></a>
+        </div>
+        <div id="afterser">
+            <ul>
+                <li>
+                    <img src="http://www.sunas.cn/themes/default/images/1s.png" alt="">
+                    <strong>一线货源</strong>
+                    <span>全国优秀商家直供</span>
+                </li>
+                <li>
+                    <img src="http://www.sunas.cn/themes/default/images/2s.png" alt="">
+                    <strong>一线货源</strong>
+                    <span>全国优秀商家直供</span>
+                </li>
+                <li>
+                    <img src="http://www.sunas.cn/themes/default/images/3s.png" alt="">
+                    <strong>一线货源</strong>
+                    <span>全国优秀商家直供</span>
+                </li>
+                <li>
+                    <img src="http://www.sunas.cn/themes/default/images/4s.png" alt="">
+                    <strong>一线货源</strong>
+                    <span>全国优秀商家直供</span>
+                </li>
+                <li>
+                    <img src="http://www.sunas.cn/themes/default/images/5s.png" alt="">
+                    <strong>一线货源</strong>
+                    <span>全国优秀商家直供</span>
+                </li>
+                <li>
+                    <img src="http://www.sunas.cn/themes/default/images/6s.png" alt="">
+                    <strong>一线货源</strong>
+                    <span>全国优秀商家直供</span>
+                </li>
+            </ul>
+            <div class="zhongxin margin">
+                <dl>
+                    <dt>帮组中心</dt>
+                    <dd>如何注册成会员</dd>
+                    <dd>积分说明</dd>
+                    <dd>宝贝打开提示已经下架或转移是什么原因？</dd>
+                    <dd>隐私政策</dd>
+                </dl>
+                <dl>
+                    <dt>支付方式</dt>
+                    <dd>在线支付</dd>
+                </dl>
+                <dl>
+                    <dt>客服中心</dt>
+                    <dd>联系客服</dd>
+                    <dd>正品质量保障</dd>
+                </dl>
+                <dl>
+                    <dt>售后服务</dt>
+                    <dd>联系客服</dd>
+                    <dd>正品质量保障</dd>
+                </dl>
+                <dl>
+                    <dt>关于我们</dt>
+                    <dd>联系客服</dd>
+                    <dd>正品质量保障</dd>
+                </dl>
+                <dl>
+                    <dt>北京天华科技有限公司</dt>
+                    <dd>联系客服</dd>
+                    <dd>正品质量保障</dd>
+                    <dd>电话咨询:40009666-88888</dd>
+                    <dd>邮箱:1296180817@qq.com</dd>
+                </dl>
+            </div>
+    </div>
+    <div id="footer">
+        <div class="margin">
+            <span>北京天华科技有限公司</span><span>|</span><span>阳光社区招商</span><span>|</span><span>乡土正品</span><span>|</span><span>淘古趣</span><span>|</span><span>跨境购</span><span>|</span><span>天宇食品商场</span><span>|</span><span>淘宝店转让</span><span>|</span><span>淘宝优惠券</span><span>|</span><span>跨境电商</span>
+            <span>|</span><span>网上购物商场</span><span>|</span><span>家政联盟</span><span>|</span><span>电商代运营</span><span>|</span><span>鱼爪网</span><span>|</span><span>朝着狗</span><span>|</span><span>上海石化</span><span>|</span><span>800折</span><span>|</span><span>品东明货网</span><span>|</span><span>饰品代理网</span><span>|</span><span>购物网站大全</span>
+            <img src="../img/q13.png" alt="">
+        </div>
+    </div>
+    
+
+
+</body>
+<script src="../js/ajax.js"></script>
+<script>
+    class List{
+        constructor(){
+            this.cont=document.getElementById("cont");
+            this.url="http://localhost/store/json/goods2.json";
+            this.init();
+            this.addEvent();//1,绑定事件
+        }
+        addEvent(){
+            var that=this;
+            this.cont.onclick=function(eve){
+                var e=eve||window.event;
+                var t=e.target||e.srcElement;
+                if(t.className=="addCar"){
+            //2,获取当前商品的id
+                that.id=t.parentNode.getAttribute("index");
+                // console.log(that.id);
+            //3,存localstorage
+                that.setDate();
+                }
+            }
+        }
+        setDate(){
+            // console.log(this.id);
+            this.goods=localStorage.getItem("shop");
+            if(this.goods){
+            //不是第一次
+            this.goods=JSON.parse(this.goods);
+            var onoff=true;
+            //之后存
+            for(var i=0;i<this.goods.length;i++){
+                //老的
+                if(this.goods[i].id==this.id){
+                    this.goods[i].num++;
+                    onoff=false;
+                }
+            }
+            //新的
+            if(onoff){
+                this.goods.push({
+                    id:this.id,
+                    num:1
+                })
+            }
+            }else{
+            //第一次存直接存
+                this.goods=[{
+                    id:this.id,
+                    num:1
+                }];
+            }
+    //最后将数据设置回去
+            localStorage.setItem("shop",JSON.stringify(this.goods))
+        }
+        init(){
+            var that=this;
+            ajaxPost(this.url,function(res){
+                that.res=JSON.parse(res);
+                that.display();
+            })
+        }
+        display(){
+            var str="";
+            for(var i=0;i<this.res.length;i++){
+                str+=`<div class="box" index="${this.res[i].id}">
+                <img src="${this.res[i].src}" alt="">
+                <p>${this.res[i].name}</p>
+                <span>价格:${this.res[i].price}</span>
+                <em class="addCar">加入购物车</em>
+                </div>`;
+            }
+            this.cont.innerHTML=str;
+        }
+    }
+    new List();
+    
+    
+</script>
+</html>

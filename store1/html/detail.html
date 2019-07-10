@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/detail.css">
+</head>
+<body>
+    <div id="header">
+        <div class="margin">
+            <div class="l floor">
+                <span>欢迎来到</span>
+                <span class="te">阳光商城</span>
+                <a href="denglu.html">登录</a>
+                <a href="zhuce.html">注册</a>
+            </div>
+            <div class="r">
+                <ul>
+                    <li>
+                        <a href="#" class="block" title="免费开店">免费开店
+                            <div class="header_bag">
+                                <a href="#">商家登录</a>
+                                <a href="#">招商入驻</a>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="block">我的订单
+                            <div class="header_bag">
+                                    <a href="#">待付款订单</a>
+                                    <a href="#">待确认收货</a>
+                            </div>
+                        </a>
+                    </li> 
+                    <li id="li">
+                        <a href="#">我的购物车
+                            <div class="header_bag">
+                                <b>最新加入的商品</b>
+                                <span>你的购物车暂无商品</span>
+                                <a href="#" class="te1">结算购物车中的商品</a>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">我的收藏
+                            <div class="header_bag">
+                                暂时无收藏的商品
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="block">帮助中心
+                                <div class="header_bag">
+                                        <a href="#">帮助中心</a>
+                                        <a href="#">售后中心</a>
+                                        <a href="#">服务中心</a>
+                                </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="block">关注我们
+                            <img src="../img/erweima.png" class="header_bag">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="block">手机版
+                            <img src="../img/erweima.png" class="header_bag">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 22222 -->
+    <div id="nav">
+        <div class="margin">
+            <div class="nav-l">
+                <a href="#"><img src="../img/logo.png" alt=""></a>
+            </div>
+            <div class="nav-c">
+                <p class="p1"><a href="#" title="请输入您要搜索的商品的关键字" class="current">商品</a><a href="#" title="请输入您要搜索的店铺的关键字">店铺</a></p>
+                <p class="p2"><input type="text" placeholder="请输入您要搜索的商品的关键字" id="p2_txt"><a href="">搜索</a>
+                </p>
+                <ul id="p2_ul"></ul>
+                <p class="p3">
+                    <span>热门搜索:</span>
+                    <a href="#">买二送一</a>
+                    <a href="#">水</a>
+                    <a href="#">牡蛎</a>
+                    <a href="#">护颈枕</a>
+                    <a href="#">面膜</a>
+                </p>
+            </div>
+            <div class="nav-r">
+                <img src="../img/tel.png" alt="">
+            </div>
+            <div class="box">
+                <a href="#">首页</a>
+                <a href="#">孝心专区</a>
+                <a href="#">白领专区</a>
+                <a href="#">活动专区</a>
+                <a href="#">积分专区</a>
+                <a href="#">养生咨询</a>
+            </div>
+        </div>
+    </div>
+    <!-- 放大镜的结构 -->
+    <div id="detail_bag" class="margin">
+        <!-- <div class="l">
+            <p></p>
+            <div class="cont">
+                <div class="exhibit">
+                    <img src="" alt="">
+                    <span></span>
+                </div>
+                <ul>
+                    <li><img src="" alt=""></li>
+                    <li><img src="" alt=""></li>
+                    <li><img src="" alt=""></li>
+                </ul>
+            </div>
+            <div class="box">
+                <img src="" alt="">
+            </div>
+            <div class="cox">
+                <h3></h3>
+                <i>商城价:</i>
+                <p>至&nbsp;&nbsp;全国:￥25.00</p>
+                <input type="button" value="立即购买">
+                <input type="button" value="加入购物车">
+            </div>
+        </div> -->
+    </div>
+
+
+
+
+
+
+
+</body>
+<script src="../js/ajax.js"></script>
+<script src="../js/detail.js"></script>
+<!-- <script>
+    function Exhibit(){
+     this.exhibit=document.querySelector(".exhibit");
+     this.exhibitImg=document.querySelector(".exhibit img");
+     this.ul=document.querySelector("ul");
+     this.aimg=this.ul.getElementsByTagName("img");
+     this.span=document.querySelector(".exhibit span");
+     this.box=document.querySelector(".box");
+     this.bimg=document.querySelector(".box img");
+     this.init()
+    }
+    Exhibit.prototype.init=function(){
+        for(var i=0;i<this.aimg.length;i++){
+            var that=this;
+            this.aimg[i].onmouseover=function(){
+             console.log(1)
+            that.exhibitImg.src=this.src.replace(/small/,"big");
+            that.bimg.src=this.src.replace(/small/,"big");
+            }
+        }
+     this.boost();
+     }
+    Exhibit.prototype.boost=function(){
+  
+     //计算span的尺寸
+     console.log(this.bimg.offsetHeight)
+     //右边大图的宽高除以右边div的宽高得到比例
+     var w=this.bimg.offsetWidth/this.box.offsetWidth;
+     var h=this.bimg.offsetHeight/this.box.offsetHeight;
+     //小框的宽度与比例相除得到span的宽度
+     this.span.style.width=this.exhibit.offsetWidth/w+"px";
+     this.span.style.height=this.exhibit.offsetHeight/h+"px";
+     this.addEvent();
+    }
+    Exhibit.prototype.addEvent=function(){
+        var that=this;
+        //进入
+        this.exhibit.addEventListener("mouseover",function(){
+         that.over();
+        })
+        //离开
+        this.exhibit.addEventListener("mouseout",function(){
+         that.out();
+        })
+        //离开
+        this.exhibit.addEventListener("mousemove",function(e){
+         var e=event||window.event;
+         that.move(e);
+        })
+        }
+     Exhibit.prototype.over=function(){
+         this.span.style.display="block";
+         this.box.style.display="block";
+     }
+     Exhibit.prototype.out=function(){
+         this.span.style.display="none";
+         this.box.style.display="none";
+     }
+     Exhibit.prototype.move=function(e){
+         //span跟随移动
+         //利用尺寸的计算
+         //利用布局解决
+         var l=e.offsetX-this.span.offsetWidth/2;
+         var t=e.offsetY-this.span.offsetHeight/2; 
+         if(l<0)l=0;
+         if(t<0)t=0;
+         if(l>this.exhibit.offsetWidth-this.span.offsetWidth)l=this.exhibit.offsetWidth-this.span.offsetWidth;
+         if(t>this.exhibit.offsetHeight-this.span.offsetHeight)t=this.exhibit.offsetHeight-this.span.offsetHeight-3;
+         //span的移动
+         this.span.style.left=l+"px";
+         this.span.style.top=t+"px";
+         //根据比例移动大图
+         //计算比例
+         var x=l/(this.exhibit.offsetWidth-this.span.offsetWidth);
+         var y=t/(this.exhibit.offsetHeight-this.span.offsetHeight);
+       
+         this.bimg.style.left=-x*(this.bimg.offsetWidth-this.box.offsetWidth)+"px";
+         this.bimg.style.top=-y*(this.bimg.offsetHeight-this.box.offsetHeight)+"px";
+     }
+    window.onload=function(){
+       new Exhibit();
+    }
+ </script> -->
+ 
+
+</html>
