@@ -148,10 +148,12 @@ main .xihuan ul li span h3{display:inline-block;color:#c00;}
 #floor1 .floor1-l .img2{display:block;}
 #floor1 .floor1-r{float:left;}
 
-#floor1 .floor1-r #cont1{width:980px;margin: 20px auto;overflow: hidden;}
-#floor1 .floor1-r #cont1 .box{width: 190px;height:268px;float: left;border: solid 1px #ccc;box-sizing: border-box;text-align: center;}
-#floor1 .floor1-r #cont1 .box img{width: 60%;}
-#floor1 .floor1-r #cont1 .box p{line-height: 16px;height: 32px;overflow: hidden;margin: 20px 0;font-size: 18px;}
+
+#floor1 .floor1-r h3{margin-top:12px;font:600 12px/43px "";width:247px;height:43px;text-indent:70px;}
+#floor1 .floor1-r #cont1{width:980px;overflow: hidden;border-top:1px solid #ccc;}
+#floor1 .floor1-r #cont1 .box{width: 196px;height:250px;float: left;border-right: solid 1px #ccc;box-sizing: border-box;text-align: center;border-bottom:1px solid #ccc;}
+#floor1 .floor1-r #cont1 .box img{width: 60%;margin-left:0;margin-top:32px;}
+#floor1 .floor1-r #cont1 .box p{line-height: 16px;height: 32px;overflow: hidden;margin: 20px 0;font-size: 18px;font:11px/17px "";}
 #floor1 .floor1-r #cont1 .box span{font-size: 18px;}
 #floor1 .floor1-r #cont1 .box em{width: 100px;height: 30px;line-height: 30px;text-align: center;margin: 10px auto;display: block;font-style: normal;background: dodgerblue;color: #FFF;}
 
@@ -209,7 +211,7 @@ main .xihuan ul li span h3{display:inline-block;color:#c00;}
 #floor4 .floor4-r ul li span{font:600 10px/26px "";color:#d11919;margin-left:19px;margin-right:11px;}
 #floor4 .floor4-r ul li s{color:#cfcfcf;font-size: 12px;}
 
-#img_box{height:130px;width:1200px;margin: 0 auto;;}
+#img_box{height:130px;width:1200px;margin: 0 auto;}
 #img_box a{display: block;line-height: 130px;}
 #img_box a img{}
 
@@ -229,5 +231,5 @@ main .xihuan ul li span h3{display:inline-block;color:#c00;}
 #footer span{font:11px/20px "";margin: 0 9px;}
 #footer img{display: block;margin-left:370px;}
 
-div.palou  ul{width:60px;position: fixed;right:0;top:300px;background: white;padding: 20px;}
-div.palou ul li{height: 40px;line-height: 40px;background: #ccc;margin: 4px 0;}
+div.palou  ul{width:50px;position: fixed;right:0;top:300px;padding:10px;}
+div.palou ul li{height: 40px;line-height: 40px;background: #ccc;margin: 4px 0;text-align: center;border-radius:8px;background:#20c018;}

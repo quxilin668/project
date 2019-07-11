@@ -77,12 +77,12 @@
         #footer{padding: 0 40px;padding-top:10px;background:#f5f5f5;}
         #footer span{font:11px/20px "";margin: 0 9px;}
         #footer img{display: block;margin-left:370px;}
-        .shoplist #cont{border:1px solid red;width:1250px;}
-        .shoplist #cont .box{border:1px solid red;}
+        .shoplist #cont{border:1px solid #ccc;width:1250px;}
+        .shoplist #cont .box{border:1px solid #ccc;}
         .shoplist #cont .box img{margin-top:36px;}
         .shoplist #cont p{}
-        .shoplist h2{}
-        .shoplist h2 a{}
+        .shoplist h2{font:20px/2 "";width:1250px;margin:0 auto;text-align:center;background:#20c018;}
+        .shoplist h2 a{font:20px/2 "";}
 
         /* <div class="shoplist">
         <h2>这是商品列表<small><a href="car.html">去结算</a></small></h2>
@@ -289,7 +289,7 @@
     class List{
         constructor(){
             this.cont=document.getElementById("cont");
-            this.url="http://localhost/store/json/goods2.json";
+            this.url="http://localhost/store1/json/goods2.json";
             this.init();
             this.addEvent();//1,绑定事件
         }
@@ -352,8 +352,8 @@
                 str+=`<div class="box" index="${this.res[i].id}">
                 <img src="${this.res[i].src}" alt="">
                 <p>${this.res[i].name}</p>
-                <span>价格:${this.res[i].price}</span>
-                <em class="addCar">加入购物车</em>
+                <span>原价:${this.res[i].price}&nbsp;优惠价格:￥${this.res[i].price.substring(1)-38}.00</span>
+                <em class="addCar" style="cursor: pointer">加入购物车</em>
                 </div>`;
             }
             this.cont.innerHTML=str;

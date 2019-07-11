@@ -40,7 +40,7 @@
                             <div class="header_bag">
                                 <b>最新加入的商品</b>
                                 <span>你的购物车暂无商品</span>
-                                <a href="#" class="te1">结算购物车中的商品</a>
+                                <a href="car.html" class="te1">结算购物车中的商品</a>
                             </div>
                         </a>
                     </li>
@@ -510,8 +510,8 @@
             <img src="../img/q2.png" class="img2">
         </div>
         <div class="floor1-r">
+            <h3>商品推荐</h3>
                 <div id="cont1">
-
                     </div>
                 
         </div>
@@ -586,7 +586,7 @@
                 <h3>商品推荐</h3>
                 <ul>
                     <li>
-                        <a href="#"><img src="http://www.sunas.cn/explorer?thumb=C.121.123&id=29664" alt=""></a>
+                        <a href="javascript:;"><img src="http://www.sunas.cn/explorer?thumb=C.121.123&id=29664" alt=""></a>
                         <p>【买一送一】中国灸-风湿灸每盒两贴</p>
                         <span>￥68.00</span><s>￥82.00</s>
                     </li>
@@ -784,11 +784,11 @@
 </div>
 <div class="palou">
         <ul class="btns">
+                <li>顶部</li>
                 <li>一楼</li>
                 <li>二楼</li>
                 <li>三楼</li>
                 <li>四楼</li>
-                <li>五楼</li>
         </ul>
 </div>
 
@@ -798,22 +798,13 @@
 <script src="../jq/jq.js"></script>
 <script src="../js/index.js"></script>
 <script src="../js/jiekou.js"></script>  
-<!-- <script>
-    $(".btns").children("li").click(function(){
-        var index=$(this).index();
-        var iNowFloor=$(".floor").eq(index);
-        var t=iNowFloor.offset().top;
-        $("html").stop().animate({
-            scrollTop:t
-        })
-    })
-</script> -->
 
 <script src="../js/ajax.js"></script>
 <script>
     class GoodsList{
         constructor(){
             this.cont=document.getElementById("cont");
+            // console.log(this.cont);
             this.url="http://localhost/store/json/goods.json";
             this.init();
         }
@@ -910,7 +901,7 @@
         display(){
             var str="";
             for(var i=0;i<this.res.length;i++){
-                str+=`<div class="box" index="${this.res[i].goodsId}">
+                str+=`<div class="box" index="${this.res[i].id}">
                 <a>
                 <img src="${this.res[i].src}" alt="">
                 <p>${this.res[i].name}</p>

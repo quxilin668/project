@@ -78,17 +78,38 @@
         #footer span{font:11px/20px "";margin: 0 9px;}
         #footer img{display: block;margin-left:370px;}
 
-    
-    
-    
-    
-    
-    
+        main #car{width: 1000px;border:1px solid #000;margin: 0 auto;}
+        main #car .carhead{width: 1000px;height:60px;background: #096;line-height: 60px;}
+        main #car .carhead span:nth-child(2){margin-left: 20px;}
+        main #car .carhead span:nth-child(3){margin-left:360px;}
+        main #car .carhead span:nth-child(4){margin-left: 160px;}
+        main #car .carhead span:nth-child(5){margin-left: 138px;}
+        main #car .carhead span:nth-child(6){margin-left: 60px;}
+        main #car .cartail{height: 40px;background: #ddd;line-height: 40px;}
+        main #car .cartail a{text-decoration: none;color: #000;cursor: pointer;}
+        main #car .cartail a:nth-child(2){margin-left: 80px;}
+        main #car .cartail .t2{margin-left: 450px;}
+        main #car .cartail .t3{margin-left: 40px;}
+        main #car .cartail .t4{margin-left: 60px;}
+        main #car .cartail .t6{color:red;}
+        main #car .carbody{border-bottom: 1px solid #ccc;}
+        main #car .carbody .body{height: 80px;margin-bottom:10px;border-bottom: 1px solid #ccc;}
+        main #car .carbody .t1{width: 320px;display: inline-block;margin-left: 0px;font-size: 16px;color: #ccc;}
+        main #car .carbody #t2{margin-left: 110px;}
+        main #car .carbody .t3{margin-left: 0px;}
+        main #car .carbody .t4{margin-left: 0px;}
+        main #car .carbody .t5{margin-left: 100px;}
+        main #car .carbody .btnmt{margin-left: 81px;width: 110px;float: left;height: 60px;line-height: 60px;}
+        main #car .carbody .pric{margin-left: 0px;width: 90px;float: left;height: 60px;line-height: 60px;}
+        main #car .carbody .msg{margin-left: 0px;width: 350px;float: left;height: 60px;line-height: 60px;}
+        main #car .carbody .imga{margin-left: 0px;width: 70px;float: left;height: 60px;line-height: 60px;}
+        main #car .carbody .chose{margin-left: 0px;width: 30px;float: left;height: 60px;line-height: 60px;}
+        main #car .carbody .unit{margin-left:99px;width: 90px;float: left;height: 60px;line-height: 60px;}
+        main #car .carbody .cut{margin-left:0px;width: 60px;float: left;height: 60px;text-align:center;line-height: 60px;}
+        main #car .carbody img{width: 50px;height: 50px;}
+        main #car h2{background:#20c018;text-align:center;font:800 20px/2 "";}
+        main #car h2 a{color:red;}
     </style>
-
-
-
-
 </head>
 <body>
     <div id="header">
@@ -192,32 +213,36 @@
 
 
 
-    <h2>这是购物车<small><a href="list.html">继续购物</a></small></h2>
-    <table border="1" cellspacing="0" width="900" align="center">
-            <thead>
-                <tr>
-                    <!-- <th>状态</th> -->
-                    <th>图片</th>
-                    <th>名字</th>
-                    <th>价格</th>
-                    <th>数量</th>
-                    <th>总价格</th>
-                    <th class="th">操作</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td colspan="5">目前购物车为空....</td>
-                </tr>
-                <!-- <tr>
-                    <td><img src="" alt=""></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td class="del">删除</td>
-                </tr> -->
-            </tbody>
-        </table>
+    <!-- <h2>这是购物车<small><a href="list.html">继续购物</a></small></h2> -->
+    <main>
+        <div class="margin">
+            <div id="car">
+                    <h2>这是购物车<small><a href="list.html">继续购物</a></small></h2>
+                    <div class="carhead">
+                    <span><input type="checkbox" class="checkboxall"/>全选</span>
+                    <span>商品</span>
+                    <span>单价</span>
+                    <span>数量</span>
+                    <span>小计</span>
+                    <span>操作</span>
+                </div>
+                <!-- 数据的渲染 -->
+                <div class="carbody">
+                </div>
+                <div class="cartail">
+                    <a>删除选中商品</a>
+                    <span class="t2">总共选中了<span class="t6"id="toalCount">0</span>件商品</span>
+                    <span class="t4">总计：<span class="t6"id="toalPrice">￥0.00</span></span>
+                    <a href="#" class="t3">去结算</a>
+                </div>
+        </div>
+    </main>
+            
+
+
+
+
+
 
         <div id="img_box">
                 <a href=""><img src="http://www.sunas.cn/themes/default/images/index/05017821186644723.jpg" alt=""></a>
@@ -305,7 +330,7 @@
 
 </body>
 <script src="../js/ajax.js"></script>
-<script>
+<!-- <script>
 class car{
     constructor(){
         this.tbody=document.querySelector("tbody");
@@ -395,9 +420,217 @@ class car{
         this.tbody.innerHTML=str;
     }
 }
-new car;
+new car; -->
+<!-- </script> -->
+<script>
+class car{
+        constructor(){
+            //完成数据的渲染
+            this.body=document.querySelector(".carbody");
+            console.log(this.body)
+            this.url="http://localhost/store/json/goods2.json";
+            this.init()
+            //绑定事件完成删除的功能
+            this.addEvent(); 
+        }
+        addEvent(){
+            var that=this;
+            this.body.onclick=function(e){
+                var e=event||window.event;
+                var target=e.target||e.srcElement;
+                //删除功能
+                console.log(target.className=="t4 del")
+                if(target.className=="t4 del"){
+                    //获取点击对应的商品的id;
+                    that.id=target.parentNode.parentNode.getAttribute("index");
+                    //删除dom的节点
+                    console.log(target.parentNode.parentNode)
+                    target.parentNode.parentNode.remove();
+                    //需要清除localStorage数据
+              
+                    that.setData(function(i){
+                        that.goods.splice(i,1)
+                    })
+                }
+                //商品数量的功能
+                if(target.className=="small-button"){
+                    } 
+                if(target.className=="check"){
+                    console.log(target.className)
+                    that.sum()
+                  }        
+                }
+           }
+           changecount(){
+               var countButtons=document.querySelectorAll(".small-button")
+               var that=this;
+               for(var i=0;i<countButtons.length;i++){
+                   countButtons[i].onclick=function(e){
+                    var e=event||window.event;
+                    var target=e.target||e.srcElement;
+                    if(target.textContent=="+"){
+                      var figure=target.previousElementSibling.value;
+                      if(target.previousElementSibling.value<=999){
+                        target.previousElementSibling.value=parseInt(target.previousElementSibling.value)+1;
+                        }
+                     // console.log(target.previousElementSibling.value)
+                      }else{
+                        if(target.nextElementSibling.value >= 2){
+                          target.nextElementSibling.value = parseInt(target.nextElementSibling.value) - 1;
+                             }
+            
+                        // console.log(target.nextElementSibling.value)
+                     }
+                    //  var contprice=target.nextElementSibling.nextElementSibling;
+                    // console.log(target.parentNode.parentNode)
+                    var price=target.parentNode.parentNode.querySelector(" .price");
+                    var contprice=target.parentNode.parentNode.querySelector(".priceCount");
+                    var input=target.parentNode.parentNode.querySelector(".count").value;
+                    // console.log(input)
+                    // //计算显示数据
+                    console.log(price.textContent)
+                    console.log(price.textContent.slice(1,price.textContent.length))
+                     var newprice=parseInt(price.textContent.slice(1,price.textContent.length))*input;
+                     console.log(newprice)
+                     contprice.innerHTML=newprice;
+                     // 设置商品的数量
 
+                     that.id=target.parentNode.parentNode.getAttribute("index");
 
+                    that.setData(function(i){
+                    that.goods[i].num=parseInt(input);
+                    })
+                     that.sum()
+                   }
+               }
+           }
+           all(){
+               var that=this;
+                 //全选
+                //  this.divs=document.querySelectorAll(".body");
+                var allcheck=document.querySelector(".checkboxall");
+                //  console.log(allcheck)
+                var checkBoxs = document.querySelectorAll('#car .check');
+                // console.log(checkBoxs)
+                // console.log(allcheck.checked)
+                allcheck.onclick=function(){
+                    if(allcheck.checked){
+                        for(var i=0;i<checkBoxs.length;i++){
+                            if(!checkBoxs[i].checked){
+                                checkBoxs[i].checked=true;
+                            }
+                        }
+                    }else{
+                        for(var i=0;i<checkBoxs.length;i++){
+                            console.log(checkBoxs[i].checked)
+                            if(checkBoxs[i].checked){
+                                checkBoxs[i].checked=false;
+                            }
+                        }
+                    }
+              //数据的总和
+              console.log(1010)
+              that.sum();
+         }
+        }
+        sum(){
+             //单选和数据总和
+            //  console.log(1)
+             var divs=document.querySelectorAll(".body");
+             var count=0;//总数
+             var sumPrice=0;//总价
+             for(var i=0;i<divs.length;i++){
+            //  console.log(divs[i].querySelector("#car .check").checked)
+            if(divs[i].querySelector(".check").checked){
+            // console.log(divs[i].querySelector(".count").value)
+             count+=parseInt(divs[i].querySelector(".count").value);
+             sumPrice+=parseInt(divs[i].querySelector(".priceCount").innerHTML);
+                }
+            } 
+            console.log(count)  
+            // console.log(sumPrice)  
+             document.querySelector("#toalCount").innerHTML=parseInt(count);
+             document.querySelector("#toalPrice").innerHTML='￥'+sumPrice.toFixed(2);
+        }
+        render(){
+            this.initial=document.querySelectorAll("#priceCount");
+            this.price=document.querySelectorAll(" .price");
+            this.contprice=document.querySelectorAll(".priceCount");
+            this.input=document.querySelectorAll(".count");
+           for(var i=0;i<this.initial.length;i++){
+                // console.log(input)
+                // //计算显示数据
+                var newprice=parseInt(this.price[i].textContent.slice(1,this.price[i].textContent.length))*this.input[i].value;
+                console.log(newprice)
+                this.contprice[i].innerHTML=newprice;
+            }
+            // this.single=document.querySelectorAll(".body .count");
+        }
+        setData(callback){
+            for(var i=0;i<this.goods.length;i++){
+                if(this.goods[i].id==this.id){
+                    callback(i)
+                }
+            }
+            localStorage.setItem("shop",JSON.stringify(this.goods));
+        }
 
+        init(){
+            var that=this;
+            ajaxPost(this.url,function(res){
+               that.res=JSON.parse(res);
+               that.getData();
+            })
+        }
+        getData(){
+            this.goods=localStorage.getItem("shop")?JSON.parse(localStorage.getItem("shop")):[];
+            console.log(this.goods)
+            this.display()
+        } 
+        display(){
+            var str="";
+            for(var i=0;i<this.res.length;i++){
+                for(var j=0;j<this.goods.length;j++){
+                    if(this.res[i].id==this.goods[j].id){
+                        str+=` 
+                        <div class="body" index="${this.res[i].id}">
+                            <div class="chose" >
+                            <input type="checkbox"class="check"/>
+                            </div>
+                            <div class="imga">
+                            <img src="${this.res[i].src}">
+                            </div>
+                            <div class="msg">
+                            <span  class="">
+                             ${this.res[i].name}
+                            </span>
+                            </div>
+                            <div class="pric">
+                            <span class="price">${this.res[i].price}</span>
+                            </div>
+                            <div class="btnmt">
+                            <button class="small-button t2">-</button>
+                            <input class="count" type="text" size="2" value="${this.goods[j].num}" min="1">
+                            <button class="small-button">+</button>
+                            </div>
+                            <div class="unit ">
+                            <span class="priceCount" id="priceCount">${this.res[i].price}</span>
+                            </div>
+                            <div class="cut">
+                            <a href="javascript:void(0);" class="t4 del">删除</a>
+                            </div>
+                        </div>`
+                    }
+                }
+            }
+    this.check=document.querySelector(".ckeck");
+    this.body.innerHTML=str;
+    this.render()
+        //全选
+    this.all();
+    this.changecount();
+        }
+     }
+    new car();
 </script>
 </html>

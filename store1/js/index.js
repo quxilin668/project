@@ -37,7 +37,6 @@ class qu{
                 that.input.placeholder=arr[i];
             }
         }
-        // console.log(this.oa);
     }
 }
 new qu();
@@ -49,6 +48,7 @@ class shuju{
         this.ul1=document.getElementById("reai_id");
         this.ul2=document.getElementById("love_id");
         this.init();
+        this.addEvent();
     }
     init(){
         var that = this;
@@ -58,12 +58,57 @@ class shuju{
             that.display2();
         })
     }
+    addEvent(){
+        let that=this;
+        $('#love_id').on('click','li',function(){
+            // console.log(1)
+            that.id = $(this).attr('index');
+            that.setData();
+            // console.log(that.id)
+        })
+        // var that = this;
+        // this.ul2.onclick = function(eve){
+        //     var e = eve || window.event;
+        //     var t = e.target || e.srcElement;
+        //     if(t.className == "oli"){
+        //         // 2.获取当前的商品ID
+        //         console.log(this.id)
+        //         that.id = t.getAttribute("index");
+        //         // 3.存localstorage
+              
+        //         that.setData();
+        //     }
+        // }
+    }
+
+    setData(){
+
+        this.goods = localStorage.getItem("shop");
+        // if(this.goods){
+
+        // }else{
+
+        // }
+            this.goods = [{
+                id:this.id,
+                
+                num:1
+            }];
+        // }
+        
+        // 最后将数据设置回去
+        localStorage.setItem("shop",JSON.stringify(this.goods))
+        location.href="http://localhost/store1/html/detail.html"
+
+    }
+
+
     display1(){
         var str="";
         for(var i=0;i<(this.data.length/2);i++){
-            console.log(this.data[i].id)
+            // console.log(this.data[i].id)
             str+=`<a href="detail.html">
-            <li index="${this.data[i].id}">
+            <li index="${this.data[i].id}" class="oli">
             <img src="${this.data[i].src}" alt="">
             <p>${this.data[i].name}</p>
             <span>商城价:<h3>${this.data[i].price}</h3></span>
@@ -73,20 +118,12 @@ class shuju{
         this.ul1.innerHTML=str;
         }
 
-    //     this.click();
-    // click(){
-    //     this.ul.onclick=function(eve){
-    //         var e = eve || window.event;
-    //         var target = e.target || e.srcElement;
-    //         console.log(target);
-    //     }
-    // }
         display2(){
             var str="";
             for(var i=6;i<this.data.length;i++){
-                console.log(this.data[i].id)
-                str +=`<a href="detail.html">
-                <li index="${this.data[i].id}">
+                // console.log(this.data[i].id)
+                str +=`<a >
+                <li index="${this.data[i].id}" class="oli">
                 <img src="${this.data[i].src}" alt="">
                 <p>${this.data[i].name}</p>
                 <span>商城价:<h3>${this.data[i].price}</h3></span>

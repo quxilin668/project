@@ -109,30 +109,7 @@
     </div>
     <!-- 放大镜的结构 -->
     <div id="detail_bag" class="margin">
-        <!-- <div class="l">
-            <p></p>
-            <div class="cont">
-                <div class="exhibit">
-                    <img src="" alt="">
-                    <span></span>
-                </div>
-                <ul>
-                    <li><img src="" alt=""></li>
-                    <li><img src="" alt=""></li>
-                    <li><img src="" alt=""></li>
-                </ul>
-            </div>
-            <div class="box">
-                <img src="" alt="">
-            </div>
-            <div class="cox">
-                <h3></h3>
-                <i>商城价:</i>
-                <p>至&nbsp;&nbsp;全国:￥25.00</p>
-                <input type="button" value="立即购买">
-                <input type="button" value="加入购物车">
-            </div>
-        </div> -->
+        <div ></div>
     </div>
 
 
@@ -144,89 +121,6 @@
 </body>
 <script src="../js/ajax.js"></script>
 <script src="../js/detail.js"></script>
-<!-- <script>
-    function Exhibit(){
-     this.exhibit=document.querySelector(".exhibit");
-     this.exhibitImg=document.querySelector(".exhibit img");
-     this.ul=document.querySelector("ul");
-     this.aimg=this.ul.getElementsByTagName("img");
-     this.span=document.querySelector(".exhibit span");
-     this.box=document.querySelector(".box");
-     this.bimg=document.querySelector(".box img");
-     this.init()
-    }
-    Exhibit.prototype.init=function(){
-        for(var i=0;i<this.aimg.length;i++){
-            var that=this;
-            this.aimg[i].onmouseover=function(){
-             console.log(1)
-            that.exhibitImg.src=this.src.replace(/small/,"big");
-            that.bimg.src=this.src.replace(/small/,"big");
-            }
-        }
-     this.boost();
-     }
-    Exhibit.prototype.boost=function(){
-  
-     //计算span的尺寸
-     console.log(this.bimg.offsetHeight)
-     //右边大图的宽高除以右边div的宽高得到比例
-     var w=this.bimg.offsetWidth/this.box.offsetWidth;
-     var h=this.bimg.offsetHeight/this.box.offsetHeight;
-     //小框的宽度与比例相除得到span的宽度
-     this.span.style.width=this.exhibit.offsetWidth/w+"px";
-     this.span.style.height=this.exhibit.offsetHeight/h+"px";
-     this.addEvent();
-    }
-    Exhibit.prototype.addEvent=function(){
-        var that=this;
-        //进入
-        this.exhibit.addEventListener("mouseover",function(){
-         that.over();
-        })
-        //离开
-        this.exhibit.addEventListener("mouseout",function(){
-         that.out();
-        })
-        //离开
-        this.exhibit.addEventListener("mousemove",function(e){
-         var e=event||window.event;
-         that.move(e);
-        })
-        }
-     Exhibit.prototype.over=function(){
-         this.span.style.display="block";
-         this.box.style.display="block";
-     }
-     Exhibit.prototype.out=function(){
-         this.span.style.display="none";
-         this.box.style.display="none";
-     }
-     Exhibit.prototype.move=function(e){
-         //span跟随移动
-         //利用尺寸的计算
-         //利用布局解决
-         var l=e.offsetX-this.span.offsetWidth/2;
-         var t=e.offsetY-this.span.offsetHeight/2; 
-         if(l<0)l=0;
-         if(t<0)t=0;
-         if(l>this.exhibit.offsetWidth-this.span.offsetWidth)l=this.exhibit.offsetWidth-this.span.offsetWidth;
-         if(t>this.exhibit.offsetHeight-this.span.offsetHeight)t=this.exhibit.offsetHeight-this.span.offsetHeight-3;
-         //span的移动
-         this.span.style.left=l+"px";
-         this.span.style.top=t+"px";
-         //根据比例移动大图
-         //计算比例
-         var x=l/(this.exhibit.offsetWidth-this.span.offsetWidth);
-         var y=t/(this.exhibit.offsetHeight-this.span.offsetHeight);
-       
-         this.bimg.style.left=-x*(this.bimg.offsetWidth-this.box.offsetWidth)+"px";
-         this.bimg.style.top=-y*(this.bimg.offsetHeight-this.box.offsetHeight)+"px";
-     }
-    window.onload=function(){
-       new Exhibit();
-    }
- </script> -->
  
 
 </html>
