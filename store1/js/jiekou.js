@@ -3,7 +3,7 @@
    function search(){
     this.input=document.getElementById("p2_txt");
     this.ul=document.getElementById("p2_ul");
-    console.log(this.ul);
+    // console.log(this.ul);
     this.index=0;
     this.code=0;
     this.init()

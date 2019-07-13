@@ -2,21 +2,21 @@ class detail{
     constructor(){
         //完成数据的渲染
         this.cont=document.querySelector("#detail_bag");
-        console.log(this.cont);
-        this.url="../json/goods2.json";
+        // console.log(this.cont);
+        this.url="http://localhost/store1/json/goods.json";
         this.init();
     }
     init(){
         var that = this;
         ajaxPost(this.url,function(data){
             that.data=JSON.parse(data);
-            console.log(that.data)
+            // console.log(that.data)
             that.getDate();
         })
     }
     getDate(){
         this.goods=localStorage.getItem("shop") ? JSON.parse(localStorage.getItem("shop")) : [];
-        console.log(this.goods);
+        // console.log(this.goods);
         this.display();
     }
     setDate(callback){
@@ -52,17 +52,22 @@ new detail();
 
 function Mag(){
     //获取元素
-    this.sBox=document.querySelector("#detail_bag");
-    // this.sBox=document.querySelector("#detail_bag");
-    // console.log(this.sBox);
-    // this.bBox=document.querySelector(".bbox");
-    // this.span=document.querySelector(".sbox span");
-    
-    // this.bImg=document.querySelector(".bbox img");
-    this.addEvent();//绑定事件
-    // this.init();
+    setTimeout(()=>{
+        this.box=document.querySelector("#detail_bag");
+        this.sBox=document.querySelector(".sbox")
+        this.bBox=document.querySelector(".bbox");
+        this.span=document.querySelector(".sbox span");
+        this.bImg=document.querySelector(".bbox img");
+        this.bBox=document.querySelector(".bbox");
+        this.ssBox=document.querySelector(".sbox");
+        this.span=document.querySelector(".sbox span");
+        this.bImg=document.querySelector(".bbox img");
+        this.addEvent();//绑定事件
+        this.init();
+    },0)    
 }
 Mag.prototype.init=function(){
+    console.log(this.bImg)
     //右边大图的宽高除以右边框的宽高得到比例
     var w=this.bImg.offsetWidth/this.bBox.offsetWidth;
     var h=this.bImg.offsetHeight/this.bBox.offsetHeight;
@@ -74,14 +79,24 @@ Mag.prototype.addEvent=function(){
     var that = this;
     //进入
   
-    this.sBox.addEventListener("mouseover",function(eve){
+
+    this.box.addEventListener("mousedown",function(eve){
+
         var e= eve || window.event;
         var t=e.target||e.srcElement;
         if(t.className=="img"){
-            that.bBox=document.querySelector(".bbox");
-            that.ssBox=document.querySelector(".sbox");
-            that.span=document.querySelector(".sbox span");
-            that.bImg=document.querySelector(".bbox img");
+            console.log(this.sBox);
+            this.sBox.addEventListener("mouseout",function(eve){
+                var e = eve || window.event;
+                var t = e.target || e.srcElement;
+                console.log(that.ssBox,999999);
+                    that.out()
+            })
+            this.sBox.addEventListener("mousemove",function(eve){
+                var e=eve || window.event;
+                that.move(e);
+            })
+        
             that.over()
             that.init()
             
@@ -90,16 +105,6 @@ Mag.prototype.addEvent=function(){
         // 
     })
     //离开
-    this.ssBox.addEventListener("mouseout",function(eve){
-        var e = eve || window.event;
-        var t = e.target || e.srcElement;
-        console.log(that.ssBox,999999);
-            that.out()
-    })
-    this.sBox.addEventListener("mousemove",function(eve){
-        var e=eve || window.event;
-        that.move(e);
-    })
     //移动
    
  }
@@ -116,6 +121,8 @@ Mag.prototype.move=function(e){
 //span跟随移动
 var l=e.clientX-this.span.offsetWidth/2-this.sBox.offsetLeft;
 var t=e.clientY-this.span.offsetHeight/2-this.sBox.offsetTop;
+console.log(l,t);
+
 //边界限定
 if(l<0){l=0}
 if(l>this.sBox.offsetWidth-this.span.offsetWidth){l=this.sBox.offsetWidth-this.span.offsetWidth}

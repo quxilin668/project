@@ -24,7 +24,7 @@ class qu{
         // this.oa=this.op.getElementsByTagName("a");
         this.oa=document.querySelectorAll(".nav-c .p1 a");
         this.input=document.querySelector(".p2 input");
-        console.log(this.input);
+        // console.log(this.input);
         var arr=["请输入您要搜索的商品关键字",
             "请输入您要搜索的店铺关键字"]
         var that = this;
@@ -60,43 +60,23 @@ class shuju{
     }
     addEvent(){
         let that=this;
-        $('#love_id').on('click','li',function(){
+        $('#reai_id').on('click','li',function(){
             // console.log(1)
             that.id = $(this).attr('index');
             that.setData();
-            // console.log(that.id)
         })
-        // var that = this;
-        // this.ul2.onclick = function(eve){
-        //     var e = eve || window.event;
-        //     var t = e.target || e.srcElement;
-        //     if(t.className == "oli"){
-        //         // 2.获取当前的商品ID
-        //         console.log(this.id)
-        //         that.id = t.getAttribute("index");
-        //         // 3.存localstorage
-              
-        //         that.setData();
-        //     }
-        // }
     }
-
+    
     setData(){
-
+        console.log(this.id);
         this.goods = localStorage.getItem("shop");
-        // if(this.goods){
-
-        // }else{
-
-        // }
+        // console.log(this.goods);
             this.goods = [{
                 id:this.id,
-                
                 num:1
             }];
-        // }
-        
         // 最后将数据设置回去
+        // console.log(this.goods);
         localStorage.setItem("shop",JSON.stringify(this.goods))
         location.href="http://localhost/store1/html/detail.html"
 
@@ -107,7 +87,7 @@ class shuju{
         var str="";
         for(var i=0;i<(this.data.length/2);i++){
             // console.log(this.data[i].id)
-            str+=`<a href="detail.html">
+            str+=`<a>
             <li index="${this.data[i].id}" class="oli">
             <img src="${this.data[i].src}" alt="">
             <p>${this.data[i].name}</p>
@@ -122,7 +102,7 @@ class shuju{
             var str="";
             for(var i=6;i<this.data.length;i++){
                 // console.log(this.data[i].id)
-                str +=`<a >
+                str +=`<a>
                 <li index="${this.data[i].id}" class="oli">
                 <img src="${this.data[i].src}" alt="">
                 <p>${this.data[i].name}</p>

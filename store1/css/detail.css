@@ -42,17 +42,17 @@
 #nav .box{position: absolute;bottom: 0;left:315px;height: 39px;line-height: 39px;width: 800px;}
 #nav .box a{font:600 15px/39px "";color:#000;padding:0 24px;display: inline-block;}
 
-#detail_bag{width:1200px;height:200px;}
-#detail_bag p{width:350px;font:30px/2 "";text-align: center;}
+#detail_bag{height:500px;}
+#detail_bag p{width:350px;font:20px/2 "";text-align: center;}
 #detail_bag .sbox{width:350px;height:350px;margin-top:20px;position: relative;}
-#detail_bag .sbox span{background:red;position: absolute;top:0;left:0;}
+#detail_bag .sbox span{position: absolute;background:#ccc;opacity:.5;width:30px;height:30px;}
 #detail_bag .img{width:350px;height:350px;}
 
-#detail_bag .bbox{width: 380px;height:410px;border:1px solid #000;position: absolute;left:700px;top:190px;overflow: hidden;display: block;margin-top:65px;}
-#detail_bag .bbox img{width: 1600px;position: absolute;height: 900px;}
-.box-r{}
+#detail_bag .bbox{width: 400px;height:410px;border:1px solid red;position: absolute;left:700px;top:190px;overflow: hidden;display:none;margin-top:65px;}
+#detail_bag .bbox img{width: 1000px;position: absolute;height: 900px;}
+/* .box-r{}
 .box-r h4{}
-.box-r p{}
+.box-r p{} */
 
 
 

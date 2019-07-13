@@ -801,6 +801,7 @@
 
 <script src="../js/ajax.js"></script>
 <script>
+    //问题 
     class GoodsList{
         constructor(){
             this.cont=document.getElementById("cont");
@@ -811,8 +812,9 @@
         init(){
             var that=this;
             ajaxPost(this.url,function(res){
-
+            
                 that.res=JSON.parse(res);
+       
                 that.display();
             })
         }
@@ -831,7 +833,7 @@
     }
 
     new GoodsList;
-
+    //下面的请求
     class GoodsList1{
         constructor(){
             this.cont=document.getElementById("cont1");
@@ -892,7 +894,7 @@
                 // console.log(res);
                 // console.log(typeof res);
                 that.res=JSON.parse(res);
-                console.log(that.res);
+                // console.log(that.res);
                 // console.log(typeof that.res);
                 // console.log(that.res.length);
                 that.display();
@@ -902,7 +904,7 @@
             var str="";
             for(var i=0;i<this.res.length;i++){
                 str+=`<div class="box" index="${this.res[i].id}">
-                <a>
+                <a href="detail.html">
                 <img src="${this.res[i].src}" alt="">
                 <p>${this.res[i].name}</p>
                 <span>${this.res[i].price}</span>
