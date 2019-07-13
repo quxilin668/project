@@ -47,53 +47,70 @@ class detail{
         this.cont.innerHTML=str;
     }
 }
-
 new detail();
 
 
 function Mag(){
     //获取元素
-    this.sBox=document.querySelector(".sbox");
-    console.log(this.sBox);
-    this.bBox=document.querySelector(".bbox");
-    this.span=document.querySelector(".sbox span");
-    this.bImg=document.querySelector(".bbox img");
+    this.sBox=document.querySelector("#detail_bag");
+    // this.sBox=document.querySelector("#detail_bag");
+    // console.log(this.sBox);
+    // this.bBox=document.querySelector(".bbox");
+    // this.span=document.querySelector(".sbox span");
+    
+    // this.bImg=document.querySelector(".bbox img");
     this.addEvent();//绑定事件
     // this.init();
 }
 Mag.prototype.init=function(){
-//右边大图的宽高除以右边框的宽高得到比例
+    //右边大图的宽高除以右边框的宽高得到比例
     var w=this.bImg.offsetWidth/this.bBox.offsetWidth;
     var h=this.bImg.offsetHeight/this.bBox.offsetHeight;
-//左边框的宽高除以比例得到span的宽高
+    //左边框的宽高除以比例得到span的宽高
     this.span.style.width=this.sBox.offsetWidth/w+"px";
     this.span.style.height=this.sBox.offsetHeight/h+"px";
 }
 Mag.prototype.addEvent=function(){
     var that = this;
     //进入
-    this.sBox.addEventListener("mouseover",function(){
-        that.over()
+  
+    this.sBox.addEventListener("mouseover",function(eve){
+        var e= eve || window.event;
+        var t=e.target||e.srcElement;
+        if(t.className=="img"){
+            that.bBox=document.querySelector(".bbox");
+            that.ssBox=document.querySelector(".sbox");
+            that.span=document.querySelector(".sbox span");
+            that.bImg=document.querySelector(".bbox img");
+            that.over()
+            that.init()
+            
+        }
 //补充布局：因为元素被display：none了，js获取不到隐藏的元素尺寸
-        that.init()
+        // 
     })
     //离开
-    this.sBox.addEventListener("mouseout",function(){
-        that.out()
+    this.ssBox.addEventListener("mouseout",function(eve){
+        var e = eve || window.event;
+        var t = e.target || e.srcElement;
+        console.log(that.ssBox,999999);
+            that.out()
     })
-    //移动
     this.sBox.addEventListener("mousemove",function(eve){
         var e=eve || window.event;
         that.move(e);
     })
-}
+    //移动
+   
+ }
 Mag.prototype.over=function(){
     this.span.style.display="block";
     this.bBox.style.display="block";
+    console.log(this.span,"this span",this.bBox)
 }
 Mag.prototype.out=function(){
     this.span.style.display="none";
-    this.span.style.display="none";
+    this.bBox.style.display="none";
 }
 Mag.prototype.move=function(e){
 //span跟随移动
@@ -117,8 +134,8 @@ this.bImg.style.top=y*(this.bBox.offsetHeight-this.bImg.offsetHeight)+"px";
 
 }
 
-onload=function(){
+
     new Mag();
-}
+
 
 

@@ -59,7 +59,7 @@
                  this.nextElementSibling.innerHTML="成功";
                  tel=1;
             }else{
-                this.nextElementSibling.innerHTML="不是手机号";
+                this.nextElementSibling.innerHTML="不是用户名";
                 tel=0;
             }
         }

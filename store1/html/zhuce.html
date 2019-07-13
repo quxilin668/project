@@ -21,7 +21,7 @@
             <h3>注册会员REGISTRATION</h3>
             <p class="te">
                 <img src="../img/ren.png" alt="">
-                <input type="text" placeholder="建议使用常用手机" id="tel">
+                <input type="text" placeholder="请输入用户名" id="tel" class="user">
                 <span></span>
             </p>
             <p>
@@ -47,11 +47,12 @@
                 <input type="text" placeholder="请输入手机验证码">
                 <input type="button" value="获取验证码" id="btn">
             </div>
+            <span class="msg"></span>
         </div>
         <div class="bag_r">
             <img src="../img/logo2.png" alt="">
             <h4>我们早就是朋友啦，一起玩耍吧</h4>
-            <a href=""><input type="button" value="立即登录"></a>
+            <a href="denglu.html"><input type="button" value="立即登录"></a>
         </div>
     </main>
     <div class="box margin">
@@ -67,134 +68,80 @@
 <script src="../js/public.js"></script>
 <script src="../js/zhuce.js"></script>
 
+<script>
+    class Register{
+        constructor(){
+            this.user = document.querySelector(".user");
+            this.pass1 = document.querySelector("#pass1");
+            this.pass2 = document.querySelector("#pass2");
+            this.btn = document.querySelector("#input2");
+            this.msg = document.querySelector(".msg");
 
-<!-- <script>
-    //随机验证码
-var code=vericode();
-var obigcode=document.getElementById("bigcode");
-var oa = document.getElementById("a");
-obigcode.innerHTML=code;
-obigcode.style.color=randomColor();
-//验证验证码
-var overi = document.getElementById("veri");
-    overi.onblur=function(){
-    // console.log(that.oinput2[5].value)
-    // console.log(code)
-    if(overi.value==""){
-        obigcode.innerHTML="验证码不能为空！"
-        return;
-    }
-    if(overi.value==code){
-        obigcode.innerHTML="";
-    }else{
-        obigcode.innerHTML="验证码错误";
-    }
-    }
+            this.init()
+        }
+        init(){
+            var that = this;
+            this.btn.onclick = function(){
+                // 先获取指定的localStorage，用来判断是否是第一次注册
+                that.getUserMsg()
+            }
+        }
+        getUserMsg(){
+            this.usermsg = localStorage.getItem("usermsg");
+            // console.log(this.usermsg);
+            // 开始判断是否是第一次
+            this.setUserMsg()
+        }
+        setUserMsg(){
+            // localStorage中的数据的格式为:[{user:"admin",pass:1234,onoff:0},{user:"admin",pass:1234,onoff:0}]
+            // 如果是第一次，直接注册，如果不是第一次要判断是否重名
+            if(this.usermsg == null){
+                // 第一次
+                this.usermsg = [{
+                    user:this.user.value,
+                    pass1:this.pass1.value,
+                    pass2:this.pass2.value,
+                    onoff:0
+                }]
+                this.msg.innerHTML = "注册成功";
+                setTimeout(() => {
+                this.msg.style.cssText = "display:none";
+                // this.msg.style.cssText = "border:0";
+            },2000)
+            }else{
+                // 不是第一次:获取的同时，转成数组，然后开始判断是否重名
+                this.usermsg = JSON.parse(localStorage.getItem("usermsg"));
+                for(var i=0;i<this.usermsg.length;i++){
+                    if(this.usermsg[i].user == this.user.value){
+                        this.msg.innerHTML = "重名";
+                        return;
+                    }
+                }
+                this.msg.innerHTML = "";
+                this.usermsg.push({
+                    user:this.user.value,
+                    pass1:this.pass1.value,
+                    pass2:this.pass2.value,
+                    onoff:0
+                })
+            }
 
-
-
-
-
-//点击切换验证码
-this.oa.onclick=function(){
- var code=vericode();
- obigcode.innerHTML=code;
- obigcode.style.color=randomColor();
-window.code=code;
-return;
-}
-
-
-    // 邮箱：Internet
-    // 正常邮箱：liy123ang@1000phone.com
-    // var reg = /^\w{3,10}@[0-9a-z]{2,10}\.[a-z]{2,5}$/i;
-    // var str = "liy123ang@1000phone.com";
-    // console.log(reg.test(str));
-    var otel = document.getElementById("tel");
-    var opass1 = document.getElementById("pass1");
-    var opass2 = document.getElementById("pass2");
-    var oyou = document.getElementById("you");
-
-    oyou.onblur=function(){
-        var reg = /^\w{3,10}@[0-9a-z]{2,10}\.[a-z]{2,5}$/i;
-        if(reg.test(this.value)){
-            this.nextElementSibling.innerHTML="成功";
-        }else{
-            this.nextElementSibling.innerHTML="不是邮箱号";
+            localStorage.setItem("usermsg",JSON.stringify(this.usermsg))
         }
     }
 
-    otel.onblur=function(){
-        var reg=/^1[1-9]\d{9}$/;
-        if(reg.test(this.value)){
-             this.nextElementSibling.innerHTML="成功";
-             tel=1;
-        }else{
-            this.nextElementSibling.innerHTML="不是手机号";
-            tel=0;
-        }
-    }
-
-    opass1.onblur = function(){
-          var a=b=c=0;
-//			长度验证
-          var lengthReg = /^.{6,18}$/;
-          if(!lengthReg.test(this.value)){
-              this.nextElementSibling.innerHTML = "长度不符";
-              passOnOff = false
-              return;
-          }
-//			是否存在数字
-          var numReg = /\d/;
-          if(numReg.test(this.value)){
-              a = 1;
-          }
-//			是否存在字母
-          var azReg = /[a-zA-Z]/;
-          if(azReg.test(this.value)){
-              b = 1;
-          }
-//			是否存在特殊字符
-          var tsReg = /[\W_]/;
-          if(tsReg.test(this.value)){
-              c = 1;
-          }
-          
-          switch(a+b+c){
-              case 1:
-                  this.nextElementSibling.innerHTML = "简单";break;
-              case 2:
-                  this.nextElementSibling.innerHTML = "一般";break;
-              case 3:
-                  this.nextElementSibling.innerHTML = "困难";break;
-          }
-          
-          passOnOff = true;
-          
-//			验证是否一致
-          if(opass2.value != ""){
-              if(opass2.value == this.value){
-                  opass2.nextElementSibling.innerHTML = "一致"				
-                  pass2OnOff = true
-              }else{
-                  opass2.nextElementSibling.innerHTML = "不一致"				
-                  pass2OnOff = false
-              }
-          }
-      }
-//		跟第一次输入密码一致
-opass2.onblur = function(){
-          if(this.value === opass1.value){
-              this.nextElementSibling.innerHTML = "一致"
-              pass2OnOff = true
-          }else{
-              this.nextElementSibling.innerHTML = "不一致"
-              pass2OnOff = false
-          }
-      }
+    new Register;
 
 
 
 
-</script> -->
+
+
+</script>
+
+
+
+
+
+
 </html>
