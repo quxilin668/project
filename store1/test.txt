@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 锘縣ello !!!!
 
 helllo jsajdsajdajdja 
@@ -6,3 +7,9 @@ helllo jsajdsajdajdja
 
 hello world....
 
+=======
+hello !!!!
+第二次上传
+hello word one
+hihihi two
+>>>>>>> quxilin
